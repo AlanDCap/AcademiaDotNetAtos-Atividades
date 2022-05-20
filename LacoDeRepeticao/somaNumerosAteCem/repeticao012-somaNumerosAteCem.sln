@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "repeticao012-somaNumerosAteCem", "repeticao012-somaNumerosAteCem.csproj", "{878C61B3-4C47-4E2A-98A8-D30088AC84FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{878C61B3-4C47-4E2A-98A8-D30088AC84FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{878C61B3-4C47-4E2A-98A8-D30088AC84FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{878C61B3-4C47-4E2A-98A8-D30088AC84FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{878C61B3-4C47-4E2A-98A8-D30088AC84FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4C4A1C8-BE72-476E-8DAC-B18B5342B70A}
+	EndGlobalSection
+EndGlobal
