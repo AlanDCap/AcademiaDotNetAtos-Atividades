@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.bt_registrarEntrada = new System.Windows.Forms.Button();
             this.bt_registrarSaida = new System.Windows.Forms.Button();
@@ -48,15 +49,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salvarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fecharAlttF4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.abrirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salvarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fecharAlttF4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_vagas = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dg_veiculosEstacionados)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,13 +72,14 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(108, 26);
             this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.TabStop = false;
             // 
             // bt_registrarEntrada
             // 
             this.bt_registrarEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_registrarEntrada.Location = new System.Drawing.Point(13, 491);
+            this.bt_registrarEntrada.Location = new System.Drawing.Point(13, 492);
             this.bt_registrarEntrada.Name = "bt_registrarEntrada";
-            this.bt_registrarEntrada.Size = new System.Drawing.Size(99, 60);
+            this.bt_registrarEntrada.Size = new System.Drawing.Size(99, 59);
             this.bt_registrarEntrada.TabIndex = 1;
             this.bt_registrarEntrada.Text = "Registrar Entrada";
             this.bt_registrarEntrada.UseVisualStyleBackColor = true;
@@ -84,9 +88,9 @@
             // bt_registrarSaida
             // 
             this.bt_registrarSaida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_registrarSaida.Location = new System.Drawing.Point(118, 491);
+            this.bt_registrarSaida.Location = new System.Drawing.Point(118, 492);
             this.bt_registrarSaida.Name = "bt_registrarSaida";
-            this.bt_registrarSaida.Size = new System.Drawing.Size(94, 60);
+            this.bt_registrarSaida.Size = new System.Drawing.Size(94, 59);
             this.bt_registrarSaida.TabIndex = 2;
             this.bt_registrarSaida.Text = "Registrar Saída";
             this.bt_registrarSaida.UseVisualStyleBackColor = true;
@@ -95,9 +99,9 @@
             // bt_finalizarExpediente
             // 
             this.bt_finalizarExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_finalizarExpediente.Location = new System.Drawing.Point(318, 491);
+            this.bt_finalizarExpediente.Location = new System.Drawing.Point(318, 492);
             this.bt_finalizarExpediente.Name = "bt_finalizarExpediente";
-            this.bt_finalizarExpediente.Size = new System.Drawing.Size(108, 60);
+            this.bt_finalizarExpediente.Size = new System.Drawing.Size(108, 59);
             this.bt_finalizarExpediente.TabIndex = 3;
             this.bt_finalizarExpediente.Text = "Finalizar Expediente";
             this.bt_finalizarExpediente.UseVisualStyleBackColor = true;
@@ -171,11 +175,11 @@
             // bt_mostrarSaida
             // 
             this.bt_mostrarSaida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_mostrarSaida.Location = new System.Drawing.Point(218, 491);
+            this.bt_mostrarSaida.Location = new System.Drawing.Point(218, 492);
             this.bt_mostrarSaida.Name = "bt_mostrarSaida";
-            this.bt_mostrarSaida.Size = new System.Drawing.Size(94, 60);
+            this.bt_mostrarSaida.Size = new System.Drawing.Size(94, 59);
             this.bt_mostrarSaida.TabIndex = 6;
-            this.bt_mostrarSaida.Text = "Mostar Saídas";
+            this.bt_mostrarSaida.Text = "Mostar Entradas";
             this.bt_mostrarSaida.UseVisualStyleBackColor = true;
             this.bt_mostrarSaida.Click += new System.EventHandler(this.bt_mostrarSaida_Click);
             // 
@@ -252,8 +256,32 @@
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.abrirToolStripMenuItem.Text = "Novo";
+            // 
+            // abrirToolStripMenuItem1
+            // 
+            this.abrirToolStripMenuItem1.Name = "abrirToolStripMenuItem1";
+            this.abrirToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
+            this.abrirToolStripMenuItem1.Text = "Abrir";
+            // 
+            // salvarToolStripMenuItem
+            // 
+            this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
+            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.salvarToolStripMenuItem.Text = "Salvar";
+            // 
+            // salvarComoToolStripMenuItem
+            // 
+            this.salvarComoToolStripMenuItem.Name = "salvarComoToolStripMenuItem";
+            this.salvarComoToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.salvarComoToolStripMenuItem.Text = "Salvar Como";
+            // 
+            // fecharAlttF4ToolStripMenuItem
+            // 
+            this.fecharAlttF4ToolStripMenuItem.Name = "fecharAlttF4ToolStripMenuItem";
+            this.fecharAlttF4ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.fecharAlttF4ToolStripMenuItem.Text = "Fechar (Altt + F4)";
             // 
             // editarToolStripMenuItem
             // 
@@ -293,35 +321,31 @@
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // abrirToolStripMenuItem1
+            // lbl_vagas
             // 
-            this.abrirToolStripMenuItem1.Name = "abrirToolStripMenuItem1";
-            this.abrirToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.abrirToolStripMenuItem1.Text = "Abrir";
+            this.lbl_vagas.AutoSize = true;
+            this.lbl_vagas.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_vagas.Enabled = false;
+            this.lbl_vagas.Font = new System.Drawing.Font("Arial Narrow", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vagas.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_vagas.Location = new System.Drawing.Point(13, 441);
+            this.lbl_vagas.Name = "lbl_vagas";
+            this.lbl_vagas.Size = new System.Drawing.Size(0, 28);
+            this.lbl_vagas.TabIndex = 14;
+            this.lbl_vagas.UseCompatibleTextRendering = true;
             // 
-            // salvarToolStripMenuItem
+            // timer1
             // 
-            this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salvarToolStripMenuItem.Text = "Salvar";
-            // 
-            // salvarComoToolStripMenuItem
-            // 
-            this.salvarComoToolStripMenuItem.Name = "salvarComoToolStripMenuItem";
-            this.salvarComoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salvarComoToolStripMenuItem.Text = "Salvar Como";
-            // 
-            // fecharAlttF4ToolStripMenuItem
-            // 
-            this.fecharAlttF4ToolStripMenuItem.Name = "fecharAlttF4ToolStripMenuItem";
-            this.fecharAlttF4ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fecharAlttF4ToolStripMenuItem.Text = "Fechar (Altt + F4)";
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 563);
+            this.Controls.Add(this.lbl_vagas);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -378,6 +402,9 @@
         private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharAlttF4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.Label lbl_vagas;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

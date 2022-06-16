@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,34 +10,37 @@ namespace ProjetoDeGaragem
         public principal()
         {
             InitializeComponent();
+            //inicialização da label que mostra a quantidade
+            //de vagas na garagem, a cada registro de entrada
+            //ou saída ela é atualizada automaticamente
+            lbl_vagas.Text = $"Bom dia!";
         }
-        /// <summary>
-        /// Lista de veículos estacionados atualmente no pátio
-        /// </summary>
-        List<Veiculo> estacionados = new List<Veiculo>();
-        /// <summary>
-        /// Lista de veículos que passaram pela garagem durante o expediente
-        /// </summary>
-        List<Veiculo> registrodiario = new List<Veiculo>();
-        double precoHora = 5;
 
-        /// Registro de carros no estacionamento. Não é possível registrar duas placas iguais. Limite de 50 carros.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        //lista com os objetos veículo estacionados na garagem,
+        //esta lista recebe um objeto quando o funcionário
+        //registra uma entrada, e o objeto é removido quando o
+        //usuário registra uma saída.
+        List<Veiculo> estacionados = new List<Veiculo>();
+
+        //botão para registro de entrada, chama o método gravar
+        //entrada que salva o registro em arquivo. 
         private void bt_registrarEntrada_Click(object sender, EventArgs e)
         {
+            //realiza verificação de vagas disponíveis na garagem.
             bool jaEstacionado = false;
             if (estacionados.Count() >= 50)
             {
                 MessageBox.Show("Garagem lotada, não há mais vagas");
             }
-            else if (tb_placa.Text.Count() < 7)
+            //tratamento do atributo placa
+            else if (!(tb_placa.Text.Count() == 7))
             {
                 MessageBox.Show("Placa inválida");
             }
             else
             {
+                //verifica se a placa está registrada
+                //entre os veículos estacionados na garagem
                 foreach (Veiculo v in estacionados)
                 {
                     if (v.Placa == tb_placa.Text)
@@ -48,22 +50,35 @@ namespace ProjetoDeGaragem
                         break;
                     }
                 }
+
                 if (!jaEstacionado)
                 {
-                    //Adiciona um novo veículo na lista de vagas disponíveis
-                    Veiculo v = new Veiculo(tb_Motorista.Text, cb_tipoVeiculo.Text, tb_placa.Text);
+                    Veiculo v = new Veiculo(tb_Motorista.Text, cb_tipoVeiculo.Text, tb_placa.Text.ToUpper());
+
+                    //inscreve o veículo na interface do usuário
                     dg_veiculosEstacionados.Rows.Add(v.TipoVeiculo, v.Placa, v.Motorista, v.DataEntrada.ToString("d"), v.DataEntrada.ToString("t"));
+                    //adiciona o veículo na lista "estacionados"
                     estacionados.Add(v);
-                    //verifica se a quantidade máxima de vagas foi atingida
-                    MessageBox.Show($"{estacionados.Count()} veiculos estão na garagem, ainda restam {50 - estacionados.Count()} vagas");
+                    //grava o registro em arquivo
+                    Funcionalidades.gravarEntrada(v);
+
+                    //Informa quantas vagas ainda restam no pátio
+                    if (estacionados.Count() <= 0)
+                    {
+                        MessageBox.Show("Não há mais vagas");
+                    }
+                    MessageBox.Show($"{estacionados.Count()} veiculo(s) estão na garagem, ainda resta(m) {50 - estacionados.Count()} vaga(s)");
+                    lbl_vagas.Text = $"Vagas ocupadas {estacionados.Count()}";
+                    ///limpa os campos após efetuar o registro
+                    cb_tipoVeiculo.ResetText();
+                    tb_placa.Clear();
+                    tb_Motorista.Clear();
                 }
             }
         }
-        /// <summary>
-        /// Registra a saída de um veículo da garagem e informa o preço a ser pago
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        //botão para registro de saída de veículo, chama
+        //o método gravar saída e salva o registro
+        //completo com hora de entrada e saída em arquivo
         private void bt_registrarSaida_Click(object sender, EventArgs e)
         {
             //pega a referência da placa para buscar o veículo na lista
@@ -71,60 +86,48 @@ namespace ProjetoDeGaragem
             int indice = linhaSelecionada.Index;
             string placa = (string)dg_veiculosEstacionados.Rows[indice].Cells[1].Value;
             int indexVeiculo;
-            //adiciona o veículo na lista de registro diário
-            foreach (Veiculo i in estacionados)
+
+            foreach (Veiculo v in estacionados)
             {
-                if (i.Placa.Equals(placa))
+                //registra no objeto veículo os valores referentes à HoraSaida, Permanencia, e ValorPago. 
+                if (v.Placa.Equals(placa))
                 {
-                    indexVeiculo = estacionados.IndexOf(i);
-                    registrodiario.Add(i);
-                    i.HoraSaida = DateTime.Now;
-                    i.Permanencia = i.HoraSaida.Subtract(i.DataEntrada);
-                    i.Valorpago = Math.Ceiling((i.Permanencia.TotalMinutes / 60)) * precoHora;
-                    MessageBox.Show($"O valor a ser cobrado é {i.Valorpago} reais, equivalente a {Math.Ceiling(i.Permanencia.TotalHours)} hora(s)");
-                    break;
-                }
-            }
-            //remove o veículo da lista de estacionados e do datagrid
-            foreach (Veiculo i in estacionados)
-            {
-                if (i.Placa.Equals(placa))
-                {
-                    indexVeiculo = estacionados.IndexOf(i);
+                    indexVeiculo = estacionados.IndexOf(v);
+                    Funcionalidades.gravarSaida(v);
+                    MessageBox.Show($"O valor a ser cobrado é {v.Valorpago} reais, equivalente a {Math.Ceiling(v.Permanencia.TotalHours)} hora(s)");
+
+                    dg_veiculosEstacionados.Rows.RemoveAt(indice);
                     estacionados.Remove(estacionados[indexVeiculo]);
                     break;
                 }
             }
-            dg_veiculosEstacionados.Rows.RemoveAt(indice);
+            lbl_vagas.Text = $"Vagas ocupadas {estacionados.Count()}";
         }
-        //lista todos os veículos que passaram pela garagem no dia de expediente.
+        //botão para mostrar os carros que já registraram entrada na garagem
         private void bt_mostrarSaida_Click(object sender, EventArgs e)
         {
-            foreach (Veiculo v in registrodiario)
-                MessageBox.Show($"{v.Placa}, {v.TipoVeiculo} {v.DataEntrada.ToString("t")}");
+            //este método abre uma nova janela com datagrid, onde são
+            //mostrados todos os carros que registraram entrada na
+            //garagem no dia de expediente.
+            Funcionalidades.mostrarMovimentação();
         }
-
+        //botão que encerra o expediente
         private void bt_finalizarExpediente_Click(object sender, EventArgs e)
         {
-            try
+            //não é permitido encerrar o expediente enquanto houver carros na garagem
+            if (estacionados.Count > 0)
             {
+                MessageBox.Show("Para encerrar o expediente, não pode haver carros registrados na garagem.");
+            }
+            //este método encerra a aplicação
+            else
+                Funcionalidades.finalizarExpediente();
+        }
 
-                string nomeArquivo = "registroDiario.dat";
-                double ganhoDiario = 0;
-                StreamWriter escritor = new StreamWriter(nomeArquivo, true);
-                foreach (Veiculo v in registrodiario)
-                {
-                    escritor.WriteLine($"{v.DataEntrada.ToString("yyyyMMdd")};{v.Placa};{v.TipoVeiculo};{v.Motorista}{v.HoraSaida};{v.Valorpago}");
-                    escritor.Flush();
-                    ganhoDiario = ganhoDiario + v.Valorpago;
-                }
-                escritor.Close();
-                MessageBox.Show($"O total recebido no hoje foi {Math.Round(ganhoDiario, 2)}");
-            }
-            catch (IOException)
-            {
-                MessageBox.Show("Erro ao gravar o arquivo");
-            }
+        //mantém o datetimepicker com o horário atualizado 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = DateTime.Now;
         }
     }
 }
