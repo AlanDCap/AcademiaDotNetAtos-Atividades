@@ -124,12 +124,8 @@ body{
 }
 
 .grupo-legenda{
-    width: 33%;
-    border-style: ridge;
-}
-
-.grupo-extras{
-    width: 67%;
+    width: 100%;
+    max-width: 1450px;
     border-style: ridge;
 }
 
@@ -141,6 +137,11 @@ body{
     margin: 20px;
     padding: 5px;
     font-size: 24px;
+}
+
+.extras{
+    margin: 20px;
+    padding: 5px;
 }
 
 .nome-completo{
