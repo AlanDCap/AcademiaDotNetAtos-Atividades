@@ -1,0 +1,53 @@
+CREATE TABLE clientes (
+  id_clientes int identity (1000,1) not null,
+  cpf varchar (15) not null,
+  nome varchar (50) not null,
+  email varchar (50) not null,
+  telefone varchar (20) not null,
+  endereco varchar (50) not null,
+  PRIMARY KEY (id_clientes)
+);
+
+CREATE TABLE vendas (
+  id_vendas int identity not null,
+  id_clientes int not null,
+  dataVenda date not null,
+  valor_total decimal (10,2) not null,
+  PRIMARY KEY (id_vendas),
+  CONSTRAINT FK_vendas
+    FOREIGN KEY (id_clientes)
+      REFERENCES clientes(id_clientes)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+);
+
+
+CREATE TABLE produtos (
+  id_produto int identity,
+  cod_ean varchar (15),
+  nome varchar (50) not null,
+  preco decimal (10,2),
+  estoque int,
+  PRIMARY KEY (id_produto)
+);
+
+
+CREATE TABLE item_venda (
+  id_item_venda int identity,
+  id_vendas int,
+  id_produto int,
+  valor_un decimal (10,2),
+  qtd int,
+  valor_total decimal (10,2),
+  PRIMARY KEY (id_item_venda),
+  CONSTRAINT FK_item_vendas
+    FOREIGN KEY (id_vendas)
+      REFERENCES vendas(id_vendas)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+  CONSTRAINT FK_produto
+    FOREIGN KEY (id_produto)
+      REFERENCES produtos(id_produto)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+)
