@@ -11,11 +11,12 @@ namespace desafio_RegistroVendasComBD
         public RegistroVendas()
         {
             InitializeComponent();
+            numeric_qtd.Value = 1;
             lbl_totalVenda.Text = "R$ 0,00";
         }
 
         /// <summary>
-        /// Método para atualizar a label indicando o valor total da venda, logo acima do datagrid. 
+        /// Método para atualizar a label posicionada acima do datagrid que mostra o valor total da venda.
         /// </summary>
         public void atualizarLblVenda()
         {
@@ -31,7 +32,7 @@ namespace desafio_RegistroVendasComBD
         }
 
         /// <summary>
-        /// Método para verificar o estoque do produto antes de adicioná-lo ao datagrid.
+        /// Método para verificar o estoque do produto, é chamado toda vez que são adicionados itens ao datagrid.
         /// </summary>
         /// <returns></returns>
         public bool verificaEstoque()
@@ -75,6 +76,12 @@ namespace desafio_RegistroVendasComBD
                 MessageBox.Show("Insira a quantidade", "Alerta");
                 return;
             }
+            //Tratamento para evitar inserção de campos vazios no BD
+            if (tb_produto.Text.ToString() == "" && tb_codigo.Text.ToString() == "")
+            {
+                MessageBox.Show("Insira o código do produto ou o nome para adicioná-lo a lista de vendas");
+                return;
+            }
             if (verificaEstoque() == false)
             return;
 
@@ -92,7 +99,6 @@ namespace desafio_RegistroVendasComBD
                 leitor.Read();
 
                 double valorTotal = (int)numeric_qtd.Value * double.Parse(leitor["preco"].ToString());
-
                 dg_listaVendas.Rows.Add(leitor["cod_ean"].ToString(), leitor["nome"].ToString(), (int)numeric_qtd.Value, double.Parse(leitor["preco"].ToString()), valorTotal, int.Parse(leitor["id_produto"].ToString()));
                 cn.Close();
             }
@@ -113,10 +119,19 @@ namespace desafio_RegistroVendasComBD
         /// <param name="e"></param>
         private void bt_remover_Click(object sender, EventArgs e)
         {
-            DataGridViewRow linhaSelecionada = dg_listaVendas.CurrentRow;
-            int indice = linhaSelecionada.Index;
-            dg_listaVendas.Rows.RemoveAt(indice);
-            atualizarLblVenda();
+            //Tratamento para evitar a quebra do programa em caso de o usuário
+            //clicar no botão remover sem que nenhuma linha esteja selecionada.
+            try
+            {
+                DataGridViewRow linhaSelecionada = dg_listaVendas.CurrentRow;
+                int indice = linhaSelecionada.Index;
+                dg_listaVendas.Rows.RemoveAt(indice);
+                atualizarLblVenda();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selecione o item a ser removido", "Alerta");
+            }
         }
 
         /// <summary>
@@ -129,6 +144,14 @@ namespace desafio_RegistroVendasComBD
         /// <param name="e"></param>
         private void bt_registrarVenda_Click(object sender, EventArgs e)
         {
+            //Tratamento para evitar inserção de campos vazios no BD
+            if (tb_IDcliente.Text.ToString() == "")
+            {
+                MessageBox.Show("Insira o ID do cliente para registrar a venda");
+                return;
+            }
+            //Armazena os itens do datagrid numa lista de objetos ItemVenda
+            //A lista será passada como argumento para o método gravarItensVendidos
             List<ItemVenda> itensVendidos = new List<ItemVenda>();
             string idCliente = tb_IDcliente.Text;
             double valorTotal = 0;
@@ -137,24 +160,22 @@ namespace desafio_RegistroVendasComBD
             {
                 double valorVendaItem = (double)r.Cells["dg_valorTotal"].Value;
                 valorTotal = valorTotal + valorVendaItem;
-                ItemVenda iv = new ItemVenda
-                    (
-                    r.Cells["dg_codigo"].Value.ToString(),
-                    (double)r.Cells["dg_precoUn"].Value,
-                    (int)r.Cells["dg_qtd"].Value,
-                    (int)r.Cells["dg_idProduto"].Value
-                    );
+                ItemVenda iv = new ItemVenda(r.Cells["dg_codigo"].Value.ToString(),(double)r.Cells["dg_precoUn"].Value,(int)r.Cells["dg_qtd"].Value,(int)r.Cells["dg_idProduto"].Value);
 
                 itensVendidos.Add(iv);
             }
-            ItemVenda.gravarItensVendidos(itensVendidos);
-            ItemVenda.gravarVenda(idCliente, valorTotal);
+            //método que grava a venda no BD, registrar o valor total
+            //de todos os itens vendidos, junto com a data e o id do cliente
+            int vendasID = Venda.gravarVenda(idCliente, valorTotal);
+
+            //Registra os itens que foram vendidos no DB, recebe como
+            //fk o id da venda gerado durante o registro de venda
+            ItemVenda.gravarItensVendidos(itensVendidos, vendasID); 
 
             tb_codigo.Clear();
             tb_IDcliente.Clear();
             tb_produto.Clear();
             numeric_qtd.ResetText();
-
             MessageBox.Show("Venda registrada com sucesso");
 
             dg_listaVendas.Rows.Clear();

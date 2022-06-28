@@ -76,6 +76,7 @@
     <Compile Include="RegistroProduto.Designer.cs">
       <DependentUpon>RegistroProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Venda.cs" />
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>

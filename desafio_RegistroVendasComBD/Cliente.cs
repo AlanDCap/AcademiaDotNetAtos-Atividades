@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace desafio_RegistroVendasComBD
@@ -38,7 +38,8 @@ namespace desafio_RegistroVendasComBD
             Endereco = endereco;
         }
         /// <summary>
-        /// Método para registrar um novo cliente no DB
+        /// Método para registrar um novo cliente no BD, 
+        /// a ID do cliente é gerada automaticamente pelo BD
         /// </summary>
         /// <returns></returns>
         public bool gravarCliente()
@@ -68,7 +69,7 @@ namespace desafio_RegistroVendasComBD
                 tran.Commit();
                 MessageBox.Show("Registro realizado com sucesso", "Aviso");
                 return true;
-                
+
             }
             catch (Exception ex)
             {
@@ -80,7 +81,6 @@ namespace desafio_RegistroVendasComBD
             {
                 banco.fecharConexao();
             }
-
         }
     }
 }

@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace desafio_RegistroVendasComBD
 {
     internal class Produto
     {
+        private string idProduto;
         private string codigoEAN;
         private string nome;
         private double preco;
@@ -17,13 +18,16 @@ namespace desafio_RegistroVendasComBD
         public string Nome { get => nome; set => nome = value; }
         public double Preco { get => preco; set => preco = value; }
         public double Estoque { get => estoque; set => estoque = value; }
+        public string IdProduto { get => idProduto; set => idProduto = value; }
+
         /// <summary>
-        /// Construtor para gravar um novo produto no DB
+        /// Construtor para gravar um novo produto no BD. 
+        /// O id do produto é gerado pelo próprio BD
         /// </summary>
-        /// <param name="codigoEAN"></param>
-        /// <param name="nome"></param>
-        /// <param name="preco"></param>
-        /// <param name="estoque"></param>
+        /// <param name="codigoEAN">Código de barras do produto</param>
+        /// <param name="nome">Nome do produto</param>
+        /// <param name="preco">Preço unitário do produto</param>
+        /// <param name="estoque">Quantidade de estoque inicial. Caso não haja estoque, insira o valor 0</param>
         public Produto(string codigoEAN, string nome, double preco, double estoque)
         {
             CodigoEAN = codigoEAN;
@@ -40,7 +44,7 @@ namespace desafio_RegistroVendasComBD
             Banco banco = new Banco();
             SqlConnection cn = banco.abrirConexao();
             SqlTransaction tran = cn.BeginTransaction();
-            
+
             SqlCommand command = new SqlCommand();
             command.Connection = cn;
             command.Transaction = tran;
@@ -54,7 +58,7 @@ namespace desafio_RegistroVendasComBD
             command.Parameters[1].Value = CodigoEAN;
             command.Parameters[2].Value = Preco;
             command.Parameters[3].Value = Estoque;
-            
+
             try
             {
                 command.ExecuteNonQuery();

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.bt_voltar = new System.Windows.Forms.Button();
             this.bt_confirmar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,20 +41,10 @@
             this.tb_produto = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(20, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 32);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Ir para Vendas";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // bt_voltar
             // 
             this.bt_voltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_voltar.Location = new System.Drawing.Point(355, 205);
+            this.bt_voltar.Location = new System.Drawing.Point(264, 197);
             this.bt_voltar.Name = "bt_voltar";
             this.bt_voltar.Size = new System.Drawing.Size(85, 32);
             this.bt_voltar.TabIndex = 27;
@@ -66,7 +55,7 @@
             // bt_confirmar
             // 
             this.bt_confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_confirmar.Location = new System.Drawing.Point(259, 205);
+            this.bt_confirmar.Location = new System.Drawing.Point(355, 197);
             this.bt_confirmar.Name = "bt_confirmar";
             this.bt_confirmar.Size = new System.Drawing.Size(85, 32);
             this.bt_confirmar.TabIndex = 26;
@@ -129,7 +118,7 @@
             this.tb_estoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_estoque.Location = new System.Drawing.Point(145, 165);
             this.tb_estoque.Name = "tb_estoque";
-            this.tb_estoque.Size = new System.Drawing.Size(199, 26);
+            this.tb_estoque.Size = new System.Drawing.Size(295, 26);
             this.tb_estoque.TabIndex = 18;
             // 
             // tb_preco
@@ -137,7 +126,7 @@
             this.tb_preco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_preco.Location = new System.Drawing.Point(145, 133);
             this.tb_preco.Name = "tb_preco";
-            this.tb_preco.Size = new System.Drawing.Size(199, 26);
+            this.tb_preco.Size = new System.Drawing.Size(295, 26);
             this.tb_preco.TabIndex = 17;
             // 
             // tb_codigo
@@ -145,7 +134,7 @@
             this.tb_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_codigo.Location = new System.Drawing.Point(145, 101);
             this.tb_codigo.Name = "tb_codigo";
-            this.tb_codigo.Size = new System.Drawing.Size(199, 26);
+            this.tb_codigo.Size = new System.Drawing.Size(295, 26);
             this.tb_codigo.TabIndex = 16;
             // 
             // tb_produto
@@ -160,8 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 257);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(453, 248);
             this.Controls.Add(this.bt_voltar);
             this.Controls.Add(this.bt_confirmar);
             this.Controls.Add(this.label5);
@@ -181,8 +169,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bt_voltar;
         private System.Windows.Forms.Button bt_confirmar;
         private System.Windows.Forms.Label label5;

@@ -41,14 +41,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.bt_confirmar = new System.Windows.Forms.Button();
             this.bt_voltar = new System.Windows.Forms.Button();
-            this.dg_registroClientes = new System.Windows.Forms.DataGridView();
-            this.dg_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_registroClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_nome
@@ -165,7 +157,7 @@
             // bt_voltar
             // 
             this.bt_voltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_voltar.Location = new System.Drawing.Point(477, 363);
+            this.bt_voltar.Location = new System.Drawing.Point(386, 220);
             this.bt_voltar.Name = "bt_voltar";
             this.bt_voltar.Size = new System.Drawing.Size(85, 32);
             this.bt_voltar.TabIndex = 12;
@@ -173,75 +165,11 @@
             this.bt_voltar.UseVisualStyleBackColor = true;
             this.bt_voltar.Click += new System.EventHandler(this.bt_voltar_Click);
             // 
-            // dg_registroClientes
-            // 
-            this.dg_registroClientes.AllowUserToAddRows = false;
-            this.dg_registroClientes.AllowUserToDeleteRows = false;
-            this.dg_registroClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_registroClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dg_nome,
-            this.dg_cpf,
-            this.dg_email,
-            this.dg_telefone,
-            this.dg_endereco});
-            this.dg_registroClientes.Location = new System.Drawing.Point(16, 276);
-            this.dg_registroClientes.Name = "dg_registroClientes";
-            this.dg_registroClientes.ReadOnly = true;
-            this.dg_registroClientes.Size = new System.Drawing.Size(546, 73);
-            this.dg_registroClientes.TabIndex = 13;
-            // 
-            // dg_nome
-            // 
-            this.dg_nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dg_nome.HeaderText = "Nome";
-            this.dg_nome.Name = "dg_nome";
-            this.dg_nome.ReadOnly = true;
-            // 
-            // dg_cpf
-            // 
-            this.dg_cpf.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dg_cpf.HeaderText = "CPF";
-            this.dg_cpf.Name = "dg_cpf";
-            this.dg_cpf.ReadOnly = true;
-            // 
-            // dg_email
-            // 
-            this.dg_email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dg_email.HeaderText = "E-mail";
-            this.dg_email.Name = "dg_email";
-            this.dg_email.ReadOnly = true;
-            // 
-            // dg_telefone
-            // 
-            this.dg_telefone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dg_telefone.HeaderText = "Telefone";
-            this.dg_telefone.Name = "dg_telefone";
-            this.dg_telefone.ReadOnly = true;
-            // 
-            // dg_endereco
-            // 
-            this.dg_endereco.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dg_endereco.HeaderText = "Endereço";
-            this.dg_endereco.Name = "dg_endereco";
-            this.dg_endereco.ReadOnly = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(327, 363);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 32);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Ir para Vendas";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // RegistroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 418);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dg_registroClientes);
+            this.ClientSize = new System.Drawing.Size(595, 270);
             this.Controls.Add(this.bt_voltar);
             this.Controls.Add(this.bt_confirmar);
             this.Controls.Add(this.label5);
@@ -257,7 +185,6 @@
             this.Controls.Add(this.tb_nome);
             this.Name = "RegistroCliente";
             this.Text = "Registro de Clientes";
-            ((System.ComponentModel.ISupportInitialize)(this.dg_registroClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,12 +205,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button bt_confirmar;
         private System.Windows.Forms.Button bt_voltar;
-        private System.Windows.Forms.DataGridView dg_registroClientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_cpf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_telefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_endereco;
-        private System.Windows.Forms.Button button1;
     }
 }
