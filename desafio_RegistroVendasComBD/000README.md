@@ -6,10 +6,10 @@ O BD conta com 4 tabelas, uma para clientes, uma para produtos, uma para vendas 
 
 ##Visualização dos Forms
 
-![Tela Inicial](/AcademiaDotNetAtos-Atividades/desafio_RegistroVendasComBD/ImagensdoForm/inicio.png)
-![Registro de Cliente](/AlanDCap/AcademiaDotNetAtos-Atividades/desafio_RegistroVendasComBD/ImagensdoForm/registrocliente.png)
-![Registro de Produto](/AcademiaDotNetAtos-Atividades/desafio_RegistroVendasComBD/ImagensdoForm/registroproduto.png)
-![Registro de Vendas](/AcademiaDotNetAtos-Atividades/desafio_RegistroVendasComBD/ImagensdoForm/registrovendas.png)
+![Tela Inicial](/ImagensdoForm/inicio.png)
+![Registro de Cliente](/ImagensdoForm/registrocliente.png)
+![Registro de Produto](/ImagensdoForm/registroproduto.png)
+![Registro de Vendas](/ImagensdoForm/registrovendas.png)
 
 ##Possíveis implementações
 Integração das janelas de cadastro de clientes e produtos para iniciar vendas após cadastrar um cliente ou produto
