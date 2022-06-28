@@ -3,6 +3,9 @@
 O programa realiza o registro de clientes e produtos no Banco de Dados e permite realizar registro de vendas. 
 O BD conta com 4 tabelas, uma para clientes, uma para produtos, uma para vendas e outra para itens vendidos.
 
+##Imagens dos Forms
+![Inicio](https://github.com/AlanDCap/AcademiaDotNetAtos-Atividades/blob/main/desafio_RegistroVendasComBD/ImagensdoForm/inicio.png)
+
 ##Possíveis implementações
 Integração das janelas de cadastro de clientes e produtos para iniciar vendas após cadastrar um cliente ou produto
 
