@@ -1,15 +1,7 @@
 # Desafio de Cadastro de Vendas integrado a BD
 
-
 O programa realiza o registro de clientes e produtos no Banco de Dados e permite realizar registro de vendas. 
 O BD conta com 4 tabelas, uma para clientes, uma para produtos, uma para vendas e outra para itens vendidos.
-
-##Visualização dos Forms
-
-![Tela Inicial](/ImagensdoForm/inicio.png)
-![Registro de Cliente](/ImagensdoForm/registrocliente.png)
-![Registro de Produto](/ImagensdoForm/registroproduto.png)
-![Registro de Vendas](/ImagensdoForm/registrovendas.png)
 
 ##Possíveis implementações
 Integração das janelas de cadastro de clientes e produtos para iniciar vendas após cadastrar um cliente ou produto
