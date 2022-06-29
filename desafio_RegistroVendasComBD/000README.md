@@ -24,6 +24,7 @@ O BD conta com 4 tabelas, uma para clientes, uma para produtos, uma para vendas 
 ![Registro de Itens Vendidos](https://github.com/AlanDCap/AcademiaDotNetAtos-Atividades/blob/main/desafio_RegistroVendasComBD/ImagensdoForm/DB_item_venda.png)
 
 ##Possíveis implementações
+
 Integração das janelas de cadastro de clientes e produtos para iniciar vendas após cadastrar um cliente ou produto
 
 Edição de quantidade de itens vendidos através de alteração do campo no datagrid ao invés de usar um botão específico para isso
