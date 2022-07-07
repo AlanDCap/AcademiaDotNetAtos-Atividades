@@ -1,0 +1,17 @@
+﻿@model MvcMovie.Models.Pessoa
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Cadastro de Pessoas";
+}
+@using (Html.BeginForm("Cadastrar", "Home", FormMethod.Post))
+{
+    <div>
+        <span>Nome</span>
+        @Html.TextBoxFor(m=>m.Nome)
+        <span>CPF</span>
+        @Html.TextBoxFor(m=>m.Cpf)
+        <input type="submit" value="Cadastrar">
+    </div>
+}
