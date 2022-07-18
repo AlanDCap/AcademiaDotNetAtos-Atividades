@@ -1,0 +1,48 @@
+﻿@model AtosProjetoFinal.Models.Class
+
+@{
+    ViewData["Title"] = "Classe";
+}
+
+<h1>Classes</h1>
+
+<h4>Crie uma nova classe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="className" class="control-label"></label>
+                <input asp-for="className" class="form-control" />
+                <span asp-validation-for="className" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="level1_ability" class="control-label"></label>
+                <input asp-for="level1_ability" class="form-control" />
+                <span asp-validation-for="level1_ability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="level2_ability" class="control-label"></label>
+                <input asp-for="level2_ability" class="form-control" />
+                <span asp-validation-for="level2_ability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="level3_ability" class="control-label"></label>
+                <input asp-for="level3_ability" class="form-control" />
+                <span asp-validation-for="level3_ability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+                <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

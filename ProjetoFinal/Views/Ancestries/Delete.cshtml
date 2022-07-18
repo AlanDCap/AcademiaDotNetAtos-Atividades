@@ -1,0 +1,42 @@
+﻿@model AtosProjetoFinal.Models.Ancestry
+
+@{
+    ViewData["Title"] = "Ancestralidades";
+}
+
+<h3>Você tem certeza que deseja remover esta Ancestralidade?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ancestryName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ancestryName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.trait1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.trait1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.trait2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.trait2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.trait3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.trait3)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ancestryID" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+    </form>
+</div>

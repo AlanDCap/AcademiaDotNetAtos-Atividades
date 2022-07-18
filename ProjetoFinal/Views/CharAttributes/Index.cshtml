@@ -1,0 +1,106 @@
+﻿@model IEnumerable<AtosProjetoFinal.Models.CharAttributes>
+
+@{
+    ViewData["Title"] = "Atributos";
+}
+
+<h1>Atributos</h1>
+
+<p>
+    <a asp-action="Create">Adicionar Atributos</a>
+</p>
+<table class="table table-striped attributes-width">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Character.characterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.physique)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dexterity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.intelligence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.perception)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.charisma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.conviction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.evasion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.block)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.magic_def)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stamina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spirit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.reputation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Character.characterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.physique)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dexterity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.intelligence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.perception)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.charisma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.conviction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.evasion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.block)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.magic_def)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stamina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spirit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reputation)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.charAttributesID">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.charAttributesID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

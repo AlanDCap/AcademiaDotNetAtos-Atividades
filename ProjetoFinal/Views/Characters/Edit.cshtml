@@ -1,0 +1,45 @@
+﻿@model AtosProjetoFinal.Models.Character
+
+@{
+    ViewData["Title"] = "Editar Personagem";
+}
+
+<h1>Altere as informações básicas</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="characterID" />
+            <div class="form-group">
+                <label asp-for="characterName" class="control-label"></label>
+                <input asp-for="characterName" class="form-control" />
+                <span asp-validation-for="characterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="expPoints" class="control-label"></label>
+                <input asp-for="expPoints" class="form-control" />
+                <span asp-validation-for="expPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="background" class="control-label"></label>
+                <input asp-for="background" class="form-control" />
+                <span asp-validation-for="background" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar alterações" class="btn btn-primary" />
+                <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

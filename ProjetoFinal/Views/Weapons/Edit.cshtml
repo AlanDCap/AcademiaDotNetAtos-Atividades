@@ -1,0 +1,50 @@
+﻿@model AtosProjetoFinal.Models.Weapon
+
+@{
+    ViewData["Title"] = "Arma";
+}
+
+<h1>Altere as informações da arma</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="weaponID" />
+            <div class="form-group">
+                <label asp-for="weaponName" class="control-label"></label>
+                <input asp-for="weaponName" class="form-control" />
+                <span asp-validation-for="weaponName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weaponGroup" class="control-label"></label>
+                <input asp-for="weaponGroup" class="form-control" />
+                <span asp-validation-for="weaponGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weapongDmgType" class="control-label"></label>
+                <input asp-for="weapongDmgType" class="form-control" />
+                <span asp-validation-for="weapongDmgType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weaponRange" class="control-label"></label>
+                <input asp-for="weaponRange" class="form-control" />
+                <span asp-validation-for="weaponRange" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weaponDescription" class="control-label"></label>
+                <input asp-for="weaponDescription" class="form-control" />
+                <span asp-validation-for="weaponDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar alterações" class="btn btn-primary" />
+                <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

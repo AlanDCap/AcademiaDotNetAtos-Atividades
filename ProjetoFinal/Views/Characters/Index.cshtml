@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AtosProjetoFinal.Models.Character>
+
+@{
+    ViewData["Title"] = "Personagem";
+}
+
+<h1>Personagem</h1>
+
+<p>
+    <a asp-action="Create">Criar Personagem</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.characterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.expPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.background)
+            </th>
+           <th>
+                @Html.DisplayNameFor(model => model.Ancestry.ancestryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.characterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expPoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.background)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ancestry.ancestryName)
+            </td>
+            
+            <td>
+                <a asp-action="Details" asp-route-id="@item.characterID">Ficha</a> |
+                <a asp-action="Edit" asp-route-id="@item.characterID">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.characterID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

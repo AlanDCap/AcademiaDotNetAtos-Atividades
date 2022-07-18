@@ -1,0 +1,91 @@
+﻿@model AtosProjetoFinal.Models.CharAttributes
+
+@{
+    ViewData["Title"] = "Remover";
+}
+
+<h1>Tem certeza que deseja remover os atributos dessa personagem?</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.physique)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.physique)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dexterity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dexterity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.intelligence)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.intelligence)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.perception)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.perception)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.charisma)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.charisma)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.conviction)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.conviction)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.evasion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.evasion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.block)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.block)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.magic_def)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.magic_def)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.stamina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.stamina)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.spirit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.spirit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.reputation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.reputation)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="charAttributesID" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+    </form>
+</div>

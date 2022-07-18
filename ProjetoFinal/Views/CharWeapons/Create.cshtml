@@ -1,0 +1,40 @@
+﻿@model AtosProjetoFinal.Models.ViewModels.EquipmentViewModel
+
+@{
+    ViewData["Title"] = "Equipar Arma";
+}
+
+<h1>Armas</h1>
+
+<h4>Escolha uma personagem e uma arma</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="CharWeapon.characterID" class="control-label"></label>
+                <select asp-for="CharWeapon.characterID" class="form-control" 
+                asp-items="@(new SelectList(@Model.Characters,"characterID","characterName"))"></select>
+                <span asp-validation-for="CharWeapon.characterID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CharWeapon.weaponID" class="control-label"></label>
+                <select asp-for="CharWeapon.weaponID" class="form-control" 
+                asp-items="@(new SelectList(@Model.Weapons,"weaponID","weaponName"))"></select>
+                <span asp-validation-for="CharWeapon.weaponID" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Equipar" class="btn btn-primary" />
+                <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

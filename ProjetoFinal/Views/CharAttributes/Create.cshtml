@@ -1,0 +1,71 @@
+﻿@model AtosProjetoFinal.Models.ViewModels.AttributesViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Atributos</h1>
+
+<h4>Insira os atributos da personagem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="CharAttributes.characterID" class="control-label"></label>
+                <select asp-for="CharAttributes.characterID" class="form-control" 
+                asp-items="@(new SelectList(@Model.Characters,"characterID","characterName"))"></select>
+                <span asp-validation-for="CharAttributes.characterID" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CharAttributes.physique" class="control-label"></label>
+                <input asp-for="CharAttributes.physique" class="form-control" />
+                <span asp-validation-for="CharAttributes.physique" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharAttributes.dexterity" class="control-label"></label>
+                <input asp-for="CharAttributes.dexterity" class="form-control" />
+                <span asp-validation-for="CharAttributes.dexterity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharAttributes.intelligence" class="control-label"></label>
+                <input asp-for="CharAttributes.intelligence" class="form-control" />
+                <span asp-validation-for="CharAttributes.intelligence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharAttributes.perception" class="control-label"></label>
+                <input asp-for="CharAttributes.perception" class="form-control" />
+                <span asp-validation-for="CharAttributes.perception" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharAttributes.charisma" class="control-label"></label>
+                <input asp-for="CharAttributes.charisma" class="form-control" />
+                <span asp-validation-for="CharAttributes.charisma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharAttributes.conviction" class="control-label"></label>
+                <input asp-for="CharAttributes.conviction" class="form-control" />
+                <span asp-validation-for="CharAttributes.conviction" class="text-danger"></span>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-3 col-sm-3">
+                    <input type="submit" value="Criar" formaction="@Url.Action("Create")" class="btn btn-primary" />
+                </div>
+                <div class="form-group col-3 col-sm-3">
+                    <input type="submit" value="Ir para Personagens" formaction="@Url.Action("GoToCharacters")" class="btn btn-primary" />
+                </div>
+            </div>
+                <div class="form-group col-3 col-sm-3">
+                    <input type="button" class="btn btn-secondary " onclick= "history.go(-1)" value="Voltar" />
+                </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

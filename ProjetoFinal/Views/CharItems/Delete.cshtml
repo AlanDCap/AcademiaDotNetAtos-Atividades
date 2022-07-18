@@ -1,0 +1,52 @@
+﻿@model AtosProjetoFinal.Models.CharItem
+
+@{
+    ViewData["Title"] = "Remover Item";
+}
+
+<h1>Remover item</h1>
+
+<h3>Você tem certeza que deseja remover este item?</h3>
+<div>
+    <hr />
+    <dl class="row">
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Character.characterName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Character.characterName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.itemName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item.itemName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.itemGroup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item.itemGroup)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.itemBulk)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item.itemBulk)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.itemDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Item.itemDescription)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="charItemID" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+    </form>
+</div>

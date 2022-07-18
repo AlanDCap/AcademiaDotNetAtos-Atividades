@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AtosProjetoFinal.Models.Item>
+
+@{
+    ViewData["Title"] = "Item";
+}
+
+<h1>Itens</h1>
+
+<p>
+    <a asp-action="Create">Criar item</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.itemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.itemGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.itemBulk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.itemDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemBulk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.itemID">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.itemID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AtosProjetoFinal.Models.Ancestry>
+
+@{
+    ViewData["Title"] = "Ancestralidade";
+}
+
+<h1>Ancestralidades</h1>
+
+<p>
+    <a asp-action="Create">Criar Ancestralidade</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ancestryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trait1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trait2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trait3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="fst-italic" >
+                @Html.DisplayFor(modelItem => item.ancestryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trait1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trait2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trait3)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ancestryID">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.ancestryID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

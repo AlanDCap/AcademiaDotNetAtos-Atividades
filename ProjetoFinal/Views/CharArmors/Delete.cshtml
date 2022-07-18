@@ -1,0 +1,52 @@
+﻿@model AtosProjetoFinal.Models.CharArmor
+
+@{
+    ViewData["Title"] = "Remover Armadura";
+}
+
+<h1>Remover</h1>
+
+<h3>Você tem certeza que deseja remover a armadura?</h3>
+<div>
+    <hr />
+    <dl class="row">
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Character.characterName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Character.characterName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Armor.armorName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Armor.armorName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Armor.armorGroup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Armor.armorBulk)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Armor.armorProtectionValue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Armor.armorProtectionValue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Armor.armorDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Armor.armorDescription)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="charArmorID" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+    </form>
+</div>

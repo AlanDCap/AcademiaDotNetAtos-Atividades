@@ -1,0 +1,365 @@
+﻿@model AtosProjetoFinal.Models.Character
+
+@{
+    ViewData["Title"] = "Ficha";
+}
+    
+<!--Informações básicas da personagem-->
+<h1>Informações básicas</h1>
+<hr />
+<div class="row">
+    <div class="col-5">
+        <dl class="row">
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.characterName)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.characterName)
+            </dd>
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.description)
+            </dd>
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.background)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.background)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-5">
+        <dl class="row">
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.Ancestry.ancestryName)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.Ancestry.ancestryName)
+            </dd>
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.Role.roleName)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.Role.roleName)
+            </dd>
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.Class.className)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.Class.className)
+            </dd>
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.expPoints)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.expPoints)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<!--Tabela que agrupa todas as habilidades da personagem, habilidades de ancestralidade
+    sub-classe e classe-->
+<h3>Habilidades</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="col-4">
+                Ancestralidade
+            </th>
+            <th class="col-4">
+                Sub-Classe
+            </th>
+            <th class="col-4">
+                Classe
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+<tr>
+        <td>
+            @Html.DisplayFor(model => model.Ancestry.trait1)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Role.trait1)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Class.level1_ability)
+        </td>
+<tr>
+        <td>
+            @Html.DisplayFor(model => model.Ancestry.trait2)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Role.trait2)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Class.level2_ability)
+        </td>
+</tr>
+<tr>
+        <td>
+            @Html.DisplayFor(model => model.Ancestry.trait3)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Role.trait3)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Class.level3_ability)
+        </td>
+</tr>
+</table>
+
+<!--Atributos da personagem-->
+<h1>Atributos</h1>
+<hr/>
+<div class="row">
+    <div class="col-5">
+    <h3>Primários</h3>
+        <dl class="row">
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.physique)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.physique)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.dexterity)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.dexterity)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.intelligence)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.intelligence)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.perception)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.perception)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.charisma)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.charisma)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.conviction)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.conviction)
+            </dd>
+            <hr/>
+        </dl>
+    </div>
+    <div class="col-5">
+    <h3>Secundários</h3>
+        <dl class="row">
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.evasion)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.evasion)
+            </dd>
+            <hr />
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.block)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.block)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.magic_def)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.magic_def)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.stamina)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.stamina)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.spirit)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.spirit)
+            </dd>
+            <hr/>
+            <dt class = "col-sm-3">
+                @Html.DisplayNameFor(model => model.CharAttributes.reputation)
+            </dt>
+            <dd class = "col-sm-9">
+                @Html.DisplayFor(model => model.CharAttributes.reputation)
+            </dd>
+            <hr/>
+        </dl>
+    </div>
+</div>
+
+<!--Equipamentos da personagem-->
+<h1>Equipamentos</h1>
+<hr />
+<!--Tabela que mostra as armas equipadas na personagem-->
+<h3>Armas</h3>
+<form asp-action="GoToContentCreation" formmethod="post" >
+    <button type="submit" asp-controller="Characters" asp-action="EquipChar" name="BtnValue" value="CharWeapons" class="btn btn-primary">Equipar Arma</button>
+</form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="col-2">
+                Nome
+            </th>
+            <th class="col-2">
+                Grupo
+            </th>
+            <th class="col-2">
+                Tipo de Dano
+            </th>
+            <th class="col-2">
+                Alcance
+            </th>
+            <th class="col-4">
+                Descrição
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var weapon in Model.CharWeapon)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelWeapon => weapon.Weapon.weaponName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelWeapon => weapon.Weapon.weaponGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelWeapon => weapon.Weapon.weapongDmgType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelWeapon => weapon.Weapon.weaponRange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelWeapon => weapon.Weapon.weaponDescription)
+        </td>
+    </tr>
+    }
+</table>
+
+<h3>Armaduras</h3>
+<form asp-action="GoToContentCreation" formmethod="post" >
+    <button type="submit" asp-controller="Characters" asp-action="EquipChar" name="BtnValue" value="CharArmors" class="btn btn-primary">Equipar Armaduras</button>
+</form>
+<!--Tabela que mostra as armaduras equipadas no personagem-->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="col-2">
+                Nome
+            </th>
+            <th class="col-2">
+                Grupo
+            </th>
+            <th class="col-2">
+                Peso
+            </th>
+            <th class="col-2">
+                Proteção
+            </th>
+            <th class="col-4">
+                Descrição
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var armor in Model.CharArmor)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelArmor => armor.Armor.armorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelArmor => armor.Armor.armorGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelArmor => armor.Armor.armorBulk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelArmor => armor.Armor.armorProtectionValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelArmor => armor.Armor.armorDescription)
+        </td>
+    </tr>
+    }
+</table>
+        
+<h3>Itens</h3>
+<form asp-action="GoToContentCreation" formmethod="post" >
+    <button type="submit" asp-controller="Characters" asp-action="EquipChar" name="BtnValue" value="CharItems" class="btn btn-primary">Equipar Itens</button>
+</form>
+<!--Tabela que mostra os itens equipados no personagem-->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="col-2">
+                Nome
+            </th>
+            <th class="col-2">
+                Grupo
+            </th>
+            <th class="col-2">
+                Peso
+            </th>
+            <th class="col-6">
+                Descrição
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var item in Model.CharItem)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem=> item.Item.itemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem=> item.Item.itemGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem=> item.Item.itemBulk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem=> item.Item.itemDescription)
+        </td>
+    </tr>
+    }
+</table>
+
+<div>
+    <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+</div>

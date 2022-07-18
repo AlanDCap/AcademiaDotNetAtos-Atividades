@@ -1,0 +1,49 @@
+﻿@model AtosProjetoFinal.Models.Weapon
+
+@{
+    ViewData["Title"] = "Arma";
+}
+
+<h1>Você tem certeza que deseja remover esta arma?</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weaponName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weaponName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weaponGroup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weaponGroup)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weapongDmgType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weapongDmgType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weaponRange)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weaponRange)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weaponDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weaponDescription)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="weaponID" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+    </form>
+</div>

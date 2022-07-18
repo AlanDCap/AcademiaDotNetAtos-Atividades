@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AtosProjetoFinal.Models.Class>
+
+@{
+    ViewData["Title"] = "Classe";
+}
+
+<h1>Classes</h1>
+
+<p>
+    <a asp-action="Create">Adicione uma classe</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.className)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.level1_ability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.level2_ability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.level3_ability)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="fst-italic">
+                @Html.DisplayFor(modelItem => item.className)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.level1_ability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.level2_ability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.level3_ability)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.classID">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.classID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

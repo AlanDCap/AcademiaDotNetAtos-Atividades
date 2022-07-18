@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MvcMovie.Models;
+﻿using AtosProjetoFinal.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace MvcMovie.Controllers
+namespace AtosProjetoFinal.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,24 +18,17 @@ namespace MvcMovie.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Cadastrar(Pessoa p)
+        public IActionResult Start()
         {
-            
-            return View("Pessoa", p);
+            return RedirectToAction("Index", "Characters");
         }
-        public IActionResult Pessoa(Pessoa p)
+        //ação usada na tela inicial para direcionar para as seções de criação de conteúdo.
+        //O valor do botão é passado como string utilizada para indicar a controller alvo
+        public IActionResult GoToContentCreation(string homeBtnValue)
         {
-            return View(p);
-        }
-
-        public IActionResult Cadastrar()
-        {
-            return View();
+            return RedirectToAction("Index", homeBtnValue);
         }
         
-
-
         public IActionResult Privacy()
         {
             return View();

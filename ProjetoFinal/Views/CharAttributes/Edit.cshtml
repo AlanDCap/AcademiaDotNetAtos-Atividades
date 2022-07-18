@@ -1,0 +1,56 @@
+﻿@model AtosProjetoFinal.Models.CharAttributes
+
+@{
+    ViewData["Title"] = "Atributos";
+}
+
+<h1>Altere os Atributos</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="charAttributesID" />
+            <div class="form-group">
+                <label asp-for="physique" class="control-label"></label>
+                <input asp-for="physique" class="form-control" />
+                <span asp-validation-for="physique" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dexterity" class="control-label"></label>
+                <input asp-for="dexterity" class="form-control" />
+                <span asp-validation-for="dexterity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="intelligence" class="control-label"></label>
+                <input asp-for="intelligence" class="form-control" />
+                <span asp-validation-for="intelligence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="perception" class="control-label"></label>
+                <input asp-for="perception" class="form-control" />
+                <span asp-validation-for="perception" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="charisma" class="control-label"></label>
+                <input asp-for="charisma" class="form-control" />
+                <span asp-validation-for="charisma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="conviction" class="control-label"></label>
+                <input asp-for="conviction" class="form-control" />
+                <span asp-validation-for="conviction" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Salvar alterações" class="btn btn-primary" />
+                <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

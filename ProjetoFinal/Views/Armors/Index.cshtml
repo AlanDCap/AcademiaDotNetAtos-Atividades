@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AtosProjetoFinal.Models.Armor>
+
+@{
+    ViewData["Title"] = "Armadura";
+}
+
+<h1>Armaduras</h1>
+
+<p>
+    <a asp-action="Create">Criar armadura</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.armorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.armorGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.armorBulk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.armorProtectionValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.armorDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.armorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.armorGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.armorBulk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.armorProtectionValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.armorDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.armorID">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.armorID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

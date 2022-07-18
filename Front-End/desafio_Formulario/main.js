@@ -19,7 +19,8 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
     document.getElementById('t-aceite').innerText = document.getElementById('aceite').checked
     document.getElementById('t-informativos').innerText = document.getElementById('informativos').checked;
     
-    console.log('Submetido');
+    alert('Informações submetidas!');
+    
 });
 
 document.getElementById('nome').addEventListener('keyup', gerarLogin);
@@ -32,16 +33,25 @@ const login = nome + '.' + sobrenome;
 document.getElementById('login').value = login.toLowerCase();
 }
 
-document.getElementById('cep').addEventListener('focusout', async function () {
-
+document.getElementById('cep').addEventListener('focusout', function () {
+    
     const cep = document.getElementById('cep').value;
-    const data = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const zip = await data.json();
-
-    document.getElementById('endereco').value = zip.logradouro;
-    document.getElementById('complemento').value = zip.complemento;
-    document.getElementById('bairro').value = zip.bairro;
-    document.getElementById('cidade').value = zip.localidade;
-    document.getElementById('estado').value = zip.uf;
-
-});
+    
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then((response) => {
+        if (response.status >= 200 && response.status <= 299) {
+            return response.json();
+          } else {
+            throw Error(response.statusText);
+        }
+    })
+    .then((jsonResponse) => {  
+        document.getElementById('endereco').value = jsonResponse.logradouro;
+        document.getElementById('complemento').value = jsonResponse.complemento;
+        document.getElementById('bairro').value = jsonResponse.bairro;
+        document.getElementById('cidade').value = jsonResponse.localidade;
+        document.getElementById('estado').value = jsonResponse.uf;
+    })
+    .catch((error) => {
+        alert(error + "Ops, algo deu errado, verifique o CEP informado")
+    })});

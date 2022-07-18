@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Bem vindo à ferramenta de Ficha de RPG</h1>
+<p>Aqui você poderá criar personagens para jogar RPG de mesa com seus amigos e amigas.</p>
+<p>Para começar criando seu personagem, bastar clicar aqui</p>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Start">Ir para personagens</a>
+<br />
+<br />
+<p>Esta seção é intencionada à mestres de jogo que queiram adicionar novas opções 
+    de classes, ancestralidades, equipamentos e itens para seus jogadores. 
+    Todavia, ela não é exclusiva de mestres, jogadores também podem adicionar novos conteúdos. 
+    No fim, tudo depende do acordo feito entre os participantes do jogo</p>
+<p>Escolha qual conteúdo deseja adicionar primeiro.</p>
+<div class="btn-group" role="group" aria-label="Basic example">
+  
+<form asp-action="GoToContentCreation" formmethod="post" >
+    <button type="submit" asp-controller="Home" asp-action="GoToContentCreation" name="homeBtnValue" value="Ancestries" class="btn btn-primary">Ancestralidades</button>
+    <button type="submit" asp-controller="Home" asp-action="GoToContentCreation" name="homeBtnValue" value="Roles" class="btn btn-primary">Sub-classes</button>
+    <button type="submit" asp-controller="Home" asp-action="GoToContentCreation" name="homeBtnValue" value="Classes" class="btn btn-primary">Classes</button>
+    <button type="submit" asp-controller="Home" asp-action="GoToContentCreation" name="homeBtnValue" value="Weapons" class="btn btn-primary">Armas</button>
+    <button type="submit" asp-controller="Home" asp-action="GoToContentCreation" name="homeBtnValue" value="Armors" class="btn btn-primary">Armaduras</button>
+    <button type="submit" asp-controller="Home" asp-action="GoToContentCreation" name="homeBtnValue" value="Items" class="btn btn-primary">Itens</button>
+</form>
+</div>

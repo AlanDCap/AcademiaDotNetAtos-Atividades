@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AtosProjetoFinal.Models.CharItem>
+
+@{
+    ViewData["Title"] = "Equipar Itens";
+}
+
+<h1>Itens</h1>
+
+<p>
+    <a asp-action="Create">Equipar Itens</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Character.characterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item.itemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item.itemGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item.itemBulk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item.itemDescription)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+             <td>
+
+                @Html.DisplayFor(modelItem => item.Character.characterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.itemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.itemGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.itemBulk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.itemDescription)
+            </td>
+
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.charItemID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

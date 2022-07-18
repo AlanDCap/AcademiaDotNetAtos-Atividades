@@ -1,0 +1,45 @@
+﻿@model AtosProjetoFinal.Models.Ancestry
+
+@{
+    ViewData["Title"] = "Ancestralidades";
+}
+
+<h1>Altere as informações de Ancestralidade</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ancestryID" />
+            <div class="form-group">
+                <label asp-for="ancestryName" class="control-label"></label>
+                <input asp-for="ancestryName" class="form-control" />
+                <span asp-validation-for="ancestryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="trait1" class="control-label"></label>
+                <input asp-for="trait1" class="form-control" />
+                <span asp-validation-for="trait1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="trait2" class="control-label"></label>
+                <input asp-for="trait2" class="form-control" />
+                <span asp-validation-for="trait2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="trait3" class="control-label"></label>
+                <input asp-for="trait3" class="form-control" />
+                <span asp-validation-for="trait3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar alterações" class="btn btn-primary" />
+                <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

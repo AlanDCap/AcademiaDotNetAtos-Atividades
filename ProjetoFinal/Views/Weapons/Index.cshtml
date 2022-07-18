@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AtosProjetoFinal.Models.Weapon>
+
+@{
+    ViewData["Title"] = "Arma";
+}
+
+<h1>Armas</h1>
+
+<p>
+    <a asp-action="Create">Criar armas</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.weaponName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weaponGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weapongDmgType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weaponRange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weaponDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.weaponName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weaponGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weapongDmgType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weaponRange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weaponDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.weaponID">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.weaponID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

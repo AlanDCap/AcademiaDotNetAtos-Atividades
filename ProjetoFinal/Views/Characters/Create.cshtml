@@ -1,0 +1,69 @@
+﻿@model AtosProjetoFinal.Models.ViewModels.CharViewModel
+
+@{
+    ViewData["Title"] = "Personagem";
+}
+
+<h1>Criar Personagem</h1>
+
+<h4>Informações básicas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Character.characterName" class="control-label"></label>
+                <input asp-for="Character.characterName" class="form-control" />
+                <span asp-validation-for="Character.characterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character.expPoints" class="control-label"></label>
+                <input asp-for="Character.expPoints" class="form-control" />
+                <span asp-validation-for="Character.expPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character.description" class="control-label"></label>
+                <input asp-for="Character.description" class="form-control" />
+                <span asp-validation-for="Character.description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character.background" class="control-label"></label>
+                <input asp-for="Character.background" class="form-control" />
+                <span asp-validation-for="Character.background" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character.ancestryID" class="control-label"></label>
+                <select asp-for="Character.ancestryID" class="form-control" 
+                asp-items="@(new SelectList(@Model.Ancestry,"ancestryID","ancestryName"))"></select>
+                <span asp-validation-for="Character.ancestryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character.roleID" class="control-label"></label>
+                <select asp-for="Character.roleID" class="form-control" 
+                asp-items="@(new SelectList(@Model.Role,"roleID","roleName"))"></select>
+                <span asp-validation-for="Character.roleID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character.classID" class="control-label"></label>
+                <select asp-for="Character.classID" class="form-control" 
+                asp-items="@(new SelectList(@Model.Class,"classID","className"))"></select>
+                <span asp-validation-for="Character.classID" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+            <div class="form-group col-3 col-sm-3">
+                <input type="submit" value="Criar" formaction="@Url.Action("Create")" class="btn btn-primary" />
+            </div>
+            <div class="form-group col-3 col-sm-3">
+                <input type="submit" value="Ir para atributos" formaction="@Url.Action("AddAttributes")"class="btn btn-primary" />
+            </div>
+            </div>
+                <input type="button" class="btn btn-secondary col-3 col-sm-3" onclick= "history.go(-1)" value="Voltar" />
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

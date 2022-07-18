@@ -1,0 +1,43 @@
+﻿@model AtosProjetoFinal.Models.Item
+
+@{
+    ViewData["Title"] = "Item";
+}
+
+<h1>Você tem certeza que deseja remover este item?</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemGroup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemGroup)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemBulk)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemBulk)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemDescription)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="itemID" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <input type="button" class="btn btn-secondary" onclick= "history.go(-1)" value="Voltar" />
+    </form>
+</div>
